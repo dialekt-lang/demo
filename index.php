@@ -157,7 +157,7 @@ $treeRenderer = new Icecave\Dialekt\Renderer\TreeRenderer;
             ?>
         </div>
         <footer>
-            Powered by <a href="https://github.com/IcecaveStudios/dialekt">Dialekt</a>
+            Powered by <a href="https://github.com/IcecaveStudios/dialekt">Dialekt</a> v<?=htmlentities(Icecave\Dialekt\PackageInfo::VERSION)?>
         </footer>
     </body>
 </html>
