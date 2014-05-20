@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "41f213b207924a6ad9966ce77cff1cb9",
+    "hash": "1d4c8ce296a83ca296f377e40a54f2e7",
     "packages": [
         {
             "name": "icecave/dialekt",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/dialekt.git",
-                "reference": "062b67f74fb1581aed50730cdd65aaf1c71ba5ce"
+                "reference": "91aadee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/062b67f74fb1581aed50730cdd65aaf1c71ba5ce",
-                "reference": "062b67f74fb1581aed50730cdd65aaf1c71ba5ce",
+                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/d1c1646b86ed4fd8ab415a88d97905eb752e8cec",
+                "reference": "91aadee",
                 "shasum": ""
             },
             "require": {
@@ -45,9 +45,19 @@
                     "homepage": "https://github.com/jmalloc"
                 }
             ],
-            "description": "This package needs a description!",
+            "description": "A very simple language for representing boolean expressions.",
             "homepage": "https://github.com/IcecaveStudios/dialekt",
-            "time": "2014-05-06 05:51:50"
+            "keywords": [
+                "boolean",
+                "expression",
+                "label",
+                "logic",
+                "logical",
+                "parser",
+                "search",
+                "tag"
+            ],
+            "time": "2014-05-20 09:31:24"
         }
     ],
     "packages-dev": [

@@ -1,0 +1,92 @@
+body {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    background: #ffffff;
+    margin: 20px;
+    padding: 0;
+}
+
+div.container {
+    text-align: left;
+    margin: auto;
+    width: 760px;
+    background: #336699;
+    padding: 1px 0px;
+    border-radius: 16px;
+}
+
+input {
+    font-size: 17px;
+    border-radius: 8px;
+    border: none;
+    background: #efefef;
+    padding: 7px;
+    margin: 5px 0px;
+}
+
+input[type="text"] {
+    width: 660px;
+    outline: none;
+    font-family: "Andale Mono", "Menlo", "Monaco", "Courier New", monospace;
+}
+
+#submit {
+    width: 200px;
+    margin-left: 475px;
+    background: #afafaf;
+}
+
+section {
+    margin: 20px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+footer {
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #87afef;
+}
+
+a:hover {
+    color: #ff9804;
+}
+
+h1 {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 20px;
+    line-height: 22px;
+    padding: 0;
+    border-bottom: 2px solid #cccccc;
+}
+
+p {
+    margin: 20px 0 5px 0;
+    color: #404040;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin: 0;
+    color: #404040;
+    font-size: 15px;
+    font-family: "Andale Mono", "Menlo", "Monaco", "Courier New", monospace;
+}
+
+.success {
+    color: #00bb20;
+}
+
+.error {
+    color: #ff4000;
+}
+
