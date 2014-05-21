@@ -69,7 +69,7 @@ h1 {
     border-bottom: 2px solid #cccccc;
 }
 
-p {
+p, ul {
     margin: 20px 0 5px 0;
     color: #404040;
 }

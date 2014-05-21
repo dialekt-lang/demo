@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "1d4c8ce296a83ca296f377e40a54f2e7",
+    "hash": "a3b60d057baa1442f5c5b6ab0954323b",
     "packages": [
         {
             "name": "icecave/dialekt",
@@ -11,12 +11,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/IcecaveStudios/dialekt.git",
-                "reference": "91aadee"
+                "reference": "bf0a361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/d1c1646b86ed4fd8ab415a88d97905eb752e8cec",
-                "reference": "91aadee",
+                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/91aadeee5af57791056a7f25000fab1410e5335c",
+                "reference": "bf0a361",
                 "shasum": ""
             },
             "require": {
@@ -57,7 +57,7 @@
                 "search",
                 "tag"
             ],
-            "time": "2014-05-20 09:31:24"
+            "time": "2014-05-21 06:41:37"
         }
     ],
     "packages-dev": [
