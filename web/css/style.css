@@ -74,6 +74,50 @@ p, ul {
     color: #404040;
 }
 
+.syntax-tree {
+    margin: 0;
+    padding: 0;
+    color: #404040;
+    font-size: 15px;
+    line-height: 24px;
+    font-family: "Andale Mono", "Menlo", "Monaco", "Courier New", monospace;
+    margin-left: -17px;
+}
+
+.syntax-tree ul {
+    margin: 0;
+    padding: 0;
+}
+
+.syntax-tree li {
+    margin: 5px;
+    padding: 5px;
+    margin-left: 22px;
+    list-style-type: none;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+.node-status {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.node-label {
+    font-weight: bold;
+}
+
+.node-data, .node-result {
+    color: #404040;
+    margin-left: 5px;
+}
+
+.node-result {
+    display: block;
+    float: right;
+    font-size: 11px;
+}
+
 pre {
     white-space: pre-wrap;
     margin: 0;

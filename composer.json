@@ -1,5 +1,10 @@
 {
     "require": {
-        "icecave/dialekt": "dev-develop#bf0a361"
+        "icecave/dialekt": "dev-develop#4a45c3a"
+    },
+    "autoload": {
+        "psr-4": {
+            "Icecave\\Dialekt\\Demo\\": "src"
+        }
     }
 }

@@ -4,7 +4,7 @@ require __DIR__ . '/../vendor/autoload.php';
 $parser = new Icecave\Dialekt\Parser\ExpressionParser(null, isset($_GET['orByDefault']));
 $listParser = new Icecave\Dialekt\Parser\ListParser;
 $renderer = new Icecave\Dialekt\Renderer\ExpressionRenderer;
-$treeRenderer = new Icecave\Dialekt\Renderer\TreeRenderer;
+$treeRenderer = new Icecave\Dialekt\Demo\HtmlTreeRenderer;
 $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
 ?>
 <!DOCTYPE html>
@@ -51,9 +51,31 @@ $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
             </section>
 
             <?php
+            try {
+
+                $tags = [];
+
+                if (isset($_GET['tags'])) {
+                    $tags = $listParser->parseAsArray($_GET['tags']);
+                }
+
+            } catch (Icecave\Dialekt\Parser\Exception\ParseException $e) {
+
+                echo '<section class="error">';
+                echo '<h1>Parse Error in Tag List</h1>';
+                echo '<p>' . htmlentities($e->getMessage()) . '</p>';
+                echo '</section>';
+            }
+
             if (isset($_GET['expr'])) {
                 try {
                     $expression = $parser->parse($_GET['expr']);
+
+                    if ($tags) {
+                        $evaluationResult = $evaluator->evaluate($expression, $tags);
+                    } else {
+                        $evaluationResult = null;
+                    }
 
                     echo '<section>';
                     echo '<h1>Normalized Expression</h1>';
@@ -62,49 +84,16 @@ $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
 
                     echo '<section>';
                     echo '<h1>Syntax Tree</h1>';
-                    echo '<pre>' . htmlentities($treeRenderer->render($expression)) . '</pre>';
+                    echo '<div>' . $treeRenderer->render($expression, $evaluationResult) . '</div>';
                     echo '</section>';
+
                 } catch (Icecave\Dialekt\Parser\Exception\ParseException $e) {
+
                     echo '<section class="error">';
                     echo '<h1>Parse Error in Expression</h1>';
                     echo '<p>' . htmlentities($e->getMessage()) . '</p>';
                     echo '</section>';
-                }
 
-                try {
-
-                    if (isset($_GET['tags'])) {
-                        $tags = $listParser->parseAsArray($_GET['tags']);
-                        if ($tags) {
-                            $evaluationResult = $evaluator->evaluate($expression, $tags);
-
-                            echo '<section>';
-                            echo '<h1>Evaluator</h1>';
-                            echo '<p>';
-                            echo 'This expression ';
-                            if ($evaluationResult) {
-                                echo '<strong class="success">matches</strong>';
-                            } else {
-                                echo '<strong class="error">does not match</strong>';
-                            }
-                            echo ' the provided tag set:<br />';
-                            echo '</p>';
-
-                            echo '<ul>';
-                            foreach ($tags as $tag) {
-                                echo '<li>' . htmlentities($tag) . '</li>';
-                            }
-                            echo '</ul>';
-                            echo '</section>';
-                        }
-                    }
-
-                } catch (Icecave\Dialekt\Parser\Exception\ParseException $e) {
-
-                    echo '<section class="error">';
-                    echo '<h1>Parse Error in Tag List</h1>';
-                    echo '<p>' . htmlentities($e->getMessage()) . '</p>';
-                    echo '</section>';
                 }
             }
             ?>
