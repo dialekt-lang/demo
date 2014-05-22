@@ -75,7 +75,6 @@ p, ul {
 }
 
 .syntax-tree {
-    margin: 0;
     padding: 0;
     color: #404040;
     font-size: 15px;
@@ -121,9 +120,13 @@ p, ul {
 pre {
     white-space: pre-wrap;
     margin: 0;
+    padding: 5px;
+    margin: 5px;
     color: #404040;
     font-size: 15px;
     font-family: "Andale Mono", "Menlo", "Monaco", "Courier New", monospace;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
 }
 
 .success {
