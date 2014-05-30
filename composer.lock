@@ -3,20 +3,71 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "d87aa71c96e4eb8cd233f9f9d9ba18c6",
+    "hash": "10a09ff5e557975beb7563f16117a92d",
     "packages": [
         {
-            "name": "icecave/dialekt",
-            "version": "dev-develop",
+            "name": "eloquent/asplode",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/IcecaveStudios/dialekt.git",
-                "reference": "4a45c3a"
+                "url": "https://github.com/eloquent/asplode.git",
+                "reference": "3365af7eca041bf07eb5d41def12e53478f52d1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/4a45c3aefdfa287645a8eceb5a18272cb82ba125",
-                "reference": "4a45c3a",
+                "url": "https://api.github.com/repos/eloquent/asplode/zipball/3365af7eca041bf07eb5d41def12e53478f52d1b",
+                "reference": "3365af7eca041bf07eb5d41def12e53478f52d1b",
+                "shasum": ""
+            },
+            "require": {
+                "icecave/isolator": "~2",
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eloquent\\Asplode\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Erin Millard",
+                    "email": "ezzatron@gmail.com",
+                    "homepage": "http://ezzatron.com/"
+                }
+            ],
+            "description": "Drop-in exception-based error handling for PHP.",
+            "homepage": "https://github.com/eloquent/asplode",
+            "keywords": [
+                "error",
+                "errorexception",
+                "exception",
+                "failure",
+                "fault",
+                "handler",
+                "handling"
+            ],
+            "time": "2014-01-25 12:31:54"
+        },
+        {
+            "name": "icecave/dialekt",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/dialekt.git",
+                "reference": "30bf054e062e9f86149b103ac002e329983aa0b1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/dialekt/zipball/30bf054e062e9f86149b103ac002e329983aa0b1",
+                "reference": "30bf054e062e9f86149b103ac002e329983aa0b1",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +96,7 @@
                     "homepage": "https://github.com/jmalloc"
                 }
             ],
-            "description": "A very simple language for representing boolean expressions.",
+            "description": "A simple language for representing boolean expressions.",
             "homepage": "https://github.com/IcecaveStudios/dialekt",
             "keywords": [
                 "boolean",
@@ -57,15 +108,65 @@
                 "search",
                 "tag"
             ],
-            "time": "2014-05-22 05:47:14"
+            "time": "2014-05-30 03:53:02"
+        },
+        {
+            "name": "icecave/isolator",
+            "version": "2.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/IcecaveStudios/isolator.git",
+                "reference": "1a97a7ea0a3acf4b6caf06313d72c32e0182bca5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/IcecaveStudios/isolator/zipball/1a97a7ea0a3acf4b6caf06313d72c32e0182bca5",
+                "reference": "1a97a7ea0a3acf4b6caf06313d72c32e0182bca5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "icecave/archer": "~1"
+            },
+            "suggest": {
+                "eloquent/asplode": "Drop-in exception-based error handling."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Icecave\\Isolator\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "James Harris",
+                    "email": "james.harris@icecave.com.au",
+                    "homepage": "https://github.com/jmalloc"
+                }
+            ],
+            "description": "Dependency injection for global functions.",
+            "homepage": "https://github.com/IcecaveStudios/isolator",
+            "keywords": [
+                "fake",
+                "mock",
+                "phake",
+                "phpunit",
+                "test",
+                "unit"
+            ],
+            "time": "2014-02-27 04:33:16"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "icecave/dialekt": 20
-    },
+    "stability-flags": [],
     "platform": [],
     "platform-dev": []
 }

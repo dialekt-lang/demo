@@ -1,6 +1,7 @@
 {
     "require": {
-        "icecave/dialekt": "dev-develop#4a45c3a"
+        "eloquent/asplode": "~2",
+        "icecave/dialekt": "~0.1.0"
     },
     "autoload": {
         "psr-4": {

@@ -6,7 +6,6 @@ use Icecave\Dialekt\AST\ExpressionInterface;
 use Icecave\Dialekt\AST\LogicalAnd;
 use Icecave\Dialekt\AST\LogicalNot;
 use Icecave\Dialekt\AST\LogicalOr;
-use Icecave\Dialekt\AST\NodeInterface;
 use Icecave\Dialekt\AST\Pattern;
 use Icecave\Dialekt\AST\PatternLiteral;
 use Icecave\Dialekt\AST\PatternWildcard;
@@ -51,7 +50,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitLogicalAnd(LogicalAnd $node)
     {
-        $html .= '<span class="node-label">AND</span>';
+        $html  = '<span class="node-label">AND</span>';
         $html .= $this->renderResult($node);
         $html .= $this->renderList($node->children());
 
@@ -69,7 +68,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitLogicalOr(LogicalOr $node)
     {
-        $html .= '<span class="node-label">OR</span>';
+        $html  = '<span class="node-label">OR</span>';
         $html .= $this->renderResult($node);
         $html .= $this->renderList($node->children());
 
@@ -87,7 +86,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitLogicalNot(LogicalNot $node)
     {
-        $html .= '<span class="node-label">NOT</span>';
+        $html  = '<span class="node-label">NOT</span>';
         $html .= $this->renderResult($node);
         $html .= $this->renderList([$node->child()]);
 
@@ -105,7 +104,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitTag(Tag $node)
     {
-        $html .= '<span class="node-label">TAG</span>';
+        $html  = '<span class="node-label">TAG</span>';
         $html .= '<span class="node-data">';
         $html .= json_encode($node->name());
         $html .= '</span>';
@@ -125,7 +124,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitPattern(Pattern $node)
     {
-        $html .= '<span class="node-label">PATTERN</span>';
+        $html  = '<span class="node-label">PATTERN</span>';
         $html .= $this->renderResult($node);
         $html .= $this->renderList($node->children());
 
@@ -143,7 +142,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitPatternLiteral(PatternLiteral $node)
     {
-        $html .= '<span class="node-label">LITERAL</span>';
+        $html  = '<span class="node-label">LITERAL</span>';
         $html .= '<span class="node-data">';
         $html .= json_encode($node->string());
         $html .= '</span>';
@@ -162,7 +161,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitPatternWildcard(PatternWildcard $node)
     {
-        $html .= '<span class="node-label">WILDCARD</span>';
+        $html = '<span class="node-label">WILDCARD</span>';
 
         return $html;
     }
@@ -178,7 +177,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
      */
     public function visitEmptyExpression(EmptyExpression $node)
     {
-        $html .= '<span class="node-label">EMPTY</span>';
+        $html  = '<span class="node-label">EMPTY</span>';
         $html .= $this->renderResult($node);
 
         return $html;
@@ -192,7 +191,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
             $html .= '<li class="node">';
 
             if ($n instanceof ExpressionInterface && $this->result) {
-                $result = $this->result->expressionResult($n);
+                $result = $this->result->resultOf($n);
                 if ($result->isMatch()) {
                     $html .= '<span class="node-status success">&#x2714</span> ';
                 } else {
@@ -217,7 +216,7 @@ class HtmlTreeRenderer implements RendererInterface, VisitorInterface
             return;
         }
 
-        $result = $this->result->expressionResult($expression);
+        $result = $this->result->resultOf($expression);
 
         $html  = '<span class="node-result">';
 

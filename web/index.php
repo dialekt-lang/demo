@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
+Eloquent\Asplode\Asplode::install();
+
 $parser = new Icecave\Dialekt\Parser\ExpressionParser(null, isset($_GET['orByDefault']));
 $listParser = new Icecave\Dialekt\Parser\ListParser;
 $renderer = new Icecave\Dialekt\Renderer\ExpressionRenderer;
