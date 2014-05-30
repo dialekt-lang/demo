@@ -3,7 +3,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 Eloquent\Asplode\Asplode::install();
 
-$parser = new Icecave\Dialekt\Parser\ExpressionParser(null, isset($_GET['orByDefault']));
+$expressionString = isset($_GET['expr']) ? trim($_GET['expr']) : '';
+$tagListString = isset($_GET['tags']) ? trim($_GET['tags']) : '';
+$orByDefault = isset($_GET['orByDefault']);
+
+$parser = new Icecave\Dialekt\Parser\ExpressionParser(null, $orByDefault);
 $listParser = new Icecave\Dialekt\Parser\ListParser;
 $renderer = new Icecave\Dialekt\Renderer\ExpressionRenderer;
 $treeRenderer = new Icecave\Dialekt\Demo\HtmlTreeRenderer;
@@ -40,13 +44,13 @@ $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
                     By default, two adjacent tags are treated as an <strong>AND</strong> operation. This behavior can be
                     changed by selecting the checkbox below.
                     </p>
-                    <input id="expr" type="text" value="<?=htmlentities($_GET['expr'])?>" name="expr" placeholder="Dialekt expression ...">
-                    <label><input name="orByDefault" type="checkbox" <?=isset($_GET['orByDefault']) ? ' checked' : ''?>> Use <strong>OR</strong> operator by default.</label>
+                    <input id="expr" type="text" value="<?=htmlentities($expressionString)?>" name="expr" placeholder="Dialekt expression ...">
+                    <label><input name="orByDefault" type="checkbox" <?=$orByDefault ? ' checked' : ''?>> Use <strong>OR</strong> operator by default.</label>
 
                     <p>
                     You can optionally provide a space-separated list of tags to evaluate against the expression.
                     </p>
-                    <input id="tags" type="text" value="<?=htmlentities($_GET['tags'])?>" name="tags" placeholder="Tag list ...">
+                    <input id="tags" type="text" value="<?=htmlentities($tagListString)?>" name="tags" placeholder="Tag list ...">
 
                     <input id="submit" type="submit" value="Parse &amp; Evaluate">
                 </form>
@@ -55,8 +59,8 @@ $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
             <?php
             try {
                 $expression = null;
-                if (isset($_GET['expr'])) {
-                    $expression = $parser->parse($_GET['expr']);
+                if ($expressionString) {
+                    $expression = $parser->parse($expressionString);
 
                     echo '<section>';
                     echo '<h1>Normalized Expression</h1>';
@@ -73,8 +77,8 @@ $evaluator = new Icecave\Dialekt\Evaluator\Evaluator;
 
             try {
                 $tags = [];
-                if (isset($_GET['tags'])) {
-                    $tags = $listParser->parseAsArray($_GET['tags']);
+                if ($tagListString) {
+                    $tags = $listParser->parseAsArray($tagListString);
                 }
             } catch (Icecave\Dialekt\Parser\Exception\ParseException $e) {
                 echo '<section class="error">';
